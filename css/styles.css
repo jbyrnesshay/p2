@@ -1,21 +1,27 @@
 body {
 	margin: 0 auto;
 width: 100%;
+font-family: Arial, sans-serif;
+text-transform: uppercase;
+font-weight: bold;
+background: lightYellow;
+font-size: 100%;
 }
 
+.s {
+	background-color: pink;
+}
 h1 {
 	text-align: center;
 
 }
-div {
-	width: 50%;
-	margin: 0 auto;
-}
 h2.error {
 	background-color: red;
+	color: white;
+	/*text-transform: uppercase;*/
 }
 h2 {
-	 
+	 /*text-transform: uppercase;*/
 	 
 	margin: 0 auto;
 	text-align: center;
@@ -24,10 +30,59 @@ h2 {
 	word-spacing: 1em;
 
 }
-form {
-	margin-left: 25%;
+div#msgwindow {
+	 
+	width: 70%;
+	margin: 0 auto;
+	font-size: 1em;
+}
+div.maxlength {
+	/*border: solid 2px red;*/
+	display:inline-block;
+	/*border-radius:100px;*/
+	margin-bottom: 0;
+	height: 200px;
+
 
 }
-input {
+form {
+	margin: 0 auto;
+	/*font-weight: inherit;*/
+	width: 70%;
+	}
+fieldset {
+height: 500px;
 
+}
+input[type=checkbox] {
+	transform: scale(1.5);
+	border-radius:300px;
+	margin: 10px;
+
+}
+
+input[type=number], input[type=text] {
+	padding:20px;
+	margin:20px;
+	width:8em;
+	font-size:2em;
+}
+
+
+select {
+	border-radius:150px;
+	height: 4em;
+	 
+}
+
+input[type=submit] {
+	margin: 10px;
+	background: orange;
+	width: 150px;
+	height: 70px;
+	font-size:2em;
+	border-radius: 250px;
+}
+div#fields {
+		margin: 200px auto 0 auto;
 }

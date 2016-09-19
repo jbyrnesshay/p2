@@ -53,13 +53,7 @@ $symbolizer ="OFF";
    			($symbolizer ="OFF");  
    		}  	
 
-   		if ($i< ($num - 1)) {
-   				$string = $testArr[$rando]."--"; 
-   		}//appends symbol, dashes to words except for last word
-   		else $string = $testArr[$rando]; 
-
-   	 	array_push($newArray, $string);//$testArr[$rando]);*/
-   	 		//newArray is password string
+   		
     	}
    		echo $symbolizer;
    		if ($symbolizer == "ON" ){ 
@@ -68,7 +62,7 @@ $symbolizer ="OFF";
    			$symboladdindex = rand(0, ($thing-1));//select random word in wordlist array
    			$symboladd = $newArray[$symboladdindex];
    			$lenword = strlen($symboladd);//char length of that word
-   			$wordindx = rand(0, ($lenword - 3));//random character index of that word, 1 less index for -- charactr
+   			$wordindx = rand(0, ($lenword - 1));//random character index of that word
    			$changeit = $symboladd[$wordindx];
    			$symboladd[$wordindx] = "*";
    			echo "   s-".$symboladdindex;
@@ -77,6 +71,14 @@ $symbolizer ="OFF";
    			echo "   characteris -".$symboladd[$wordindx];
    			//substr_replace($symboladd, $symboladd."*", 0); 	
    			$newArray[$symboladdindex]=$symboladd;}
+
+   		if ($i< ($num - 1)) {
+   				$string = $testArr[$rando]."--"; 
+   		}//appends symbol, dashes to words except for last word
+   		else $string = $testArr[$rando]; 
+
+   	 	array_push($newArray, $string);//$testArr[$rando]);
+   	 		//newArray is password string
    // testing dumping webpage contents to file below
    $myfile = fopen("new.txt", "w");
    $tester=file("http://www.cnn.com");
