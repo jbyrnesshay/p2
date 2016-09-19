@@ -1,0 +1,33 @@
+body {
+	margin: 0 auto;
+width: 100%;
+}
+
+h1 {
+	text-align: center;
+
+}
+div {
+	width: 50%;
+	margin: 0 auto;
+}
+h2.error {
+	background-color: red;
+}
+h2 {
+	 
+	 
+	margin: 0 auto;
+	text-align: center;
+	border: solid 5px green;
+	background-color: aqua;
+	word-spacing: 1em;
+
+}
+form {
+	margin-left: 25%;
+
+}
+input {
+
+}
