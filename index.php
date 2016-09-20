@@ -27,14 +27,17 @@
   	  
   	 </div>
  
- 
-  <form  method='POST' action ='index.php' id="thisform">
+ <div id="fields">
+  <form  method='POST' action ='index.php' id="thisform" novalidate>
+  <!-- novalidate tag disables built-in validation messages and allows php validation to take over-->
  
    <p style="margin-bottom: 0;">how many words? [3 to 9]</p><br> 
+
    <fieldset>
    
 	
-  <input type="number"  min=3 max=9 title="this is an error" name = "words"  ><br>
+  <!--<input type="number"  min=3 max=9 title="this is an error" name = "words"  ><br>-->
+  <input type="text"  pattern="[0-9]{1}"  name ="words"> <br>
   <input type="checkbox" name="number">add a number?<br>
   <input type="checkbox" name="symbol">add a symbol?<br>
   <div class="maxlength">
@@ -53,6 +56,6 @@
   </fieldset>
 
   </form>
-
+</div>
  </body>
   </html>

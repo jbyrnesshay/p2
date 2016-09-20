@@ -16,7 +16,7 @@ $okEnd = "</h2>";
 $symbolizer ="OFF";   
 	//validation
  
- echo $symbolizer;
+  
  //$safeinput = htmlspecialchars($_POST["words"]);
 //echo htmlspecialchars($_POST["words"]);
    if (isset($_POST["words"])){
@@ -64,17 +64,17 @@ $symbolizer ="OFF";
    		echo $symbolizer;
    		if ($symbolizer == "ON" ){ 
    			$thing=count($newArray);
-   			echo "thing is ".$thing;
+   			//echo "thing is ".$thing;
    			$symboladdindex = rand(0, ($thing-1));//select random word in wordlist array
    			$symboladd = $newArray[$symboladdindex];
    			$lenword = strlen($symboladd);//char length of that word
    			$wordindx = rand(0, ($lenword - 3));//random character index of that word, 1 less index for -- charactr
    			$changeit = $symboladd[$wordindx];
    			$symboladd[$wordindx] = "*";
-   			echo "   s-".$symboladdindex;
-   			echo "   Wordindex is -".$wordindx;
-   			echo "   word is ".$newArray[$symboladdindex];
-   			echo "   characteris -".$symboladd[$wordindx];
+   			//echo "   s-".$symboladdindex;
+   			//echo "   Wordindex is -".$wordindx;
+   			//echo "   word is ".$newArray[$symboladdindex];
+   			//echo "   characteris -".$symboladd[$wordindx];
    			//substr_replace($symboladd, $symboladd."*", 0); 	
    			$newArray[$symboladdindex]=$symboladd;}
    // testing dumping webpage contents to file below

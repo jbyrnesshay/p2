@@ -4,54 +4,65 @@ width: 100%;
 font-family: Arial, sans-serif;
 text-transform: uppercase;
 font-weight: bold;
-background: lightYellow;
+background: white;
 font-size: 100%;
+line-height: 20px;
 }
 
 .s {
-	background-color: pink;
+	background-color: pink;/*highlighted word in password */
 }
 h1 {
 	text-align: center;
+	font-size: 1em;
+
 
 }
 h2.error {
 	background-color: red;
-	color: white;
+	color: white;  /*error message window */
 	/*text-transform: uppercase;*/
 }
 h2 {
 	 /*text-transform: uppercase;*/
-	 
-	margin: 0 auto;
+     
+	 margin: 0 auto;
 	text-align: center;
-	border: solid 5px green;
-	background-color: aqua;
+	border: solid 5px grey;
+	background-color: ghostwhite;
 	word-spacing: 1em;
+	font-size: 1em;
+	height: 40px;
+	vertical-align: middle;
+	padding: 0px;
+
+	/*font-size: 1.3em;*/
 
 }
 div#msgwindow {
 	 
-	width: 70%;
+	width: 1000px;
 	margin: 0 auto;
+	margin-top: 10px; 
 	font-size: 1em;
+	vertical-align: middle;
+	padding: 0px;
 }
-div.maxlength {
-	/*border: solid 2px red;*/
-	display:inline-block;
-	/*border-radius:100px;*/
-	margin-bottom: 0;
-	height: 200px;
-
-
-}
+ 
 form {
 	margin: 0 auto;
 	/*font-weight: inherit;*/
 	width: 70%;
 	}
+form p {
+	margin: 0 auto;
+	width: 300px;
+}
 fieldset {
 height: 500px;
+margin: auto auto;
+width: 300px;/*this is centering most of my form stuff ont he page*/
+
 
 }
 input[type=checkbox] {
@@ -63,26 +74,33 @@ input[type=checkbox] {
 
 input[type=number], input[type=text] {
 	padding:20px;
-	margin:20px;
+	margin:20px auto;
 	width:8em;
 	font-size:2em;
 }
-
+div#fields {
+	margin: auto auto;
+	width: 70%; /*setting width allows to center*/
+	height: 300px;
+}
 
 select {
 	border-radius:150px;
 	height: 4em;
+
 	 
 }
 
 input[type=submit] {
 	margin: 10px;
-	background: orange;
+	background: ghostwhite: ;
 	width: 150px;
 	height: 70px;
-	font-size:2em;
+	font-size:1em;
 	border-radius: 250px;
+	text-transform: inherit;
 }
 div#fields {
-		margin: 200px auto 0 auto;
+		margin: 75px auto 0 auto; /*setting the vertical align of most of my form stuff */
+		height: 500px;
 }
