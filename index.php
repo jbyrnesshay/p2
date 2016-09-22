@@ -4,8 +4,8 @@
   	<head>
     <title> Joachim Byrnes-Shay, Project 2: XKCD Style Password Generator, CSCI E-15  </title>
     <meta charset="utf-8">
-    <link href="css/styles.css" rel="stylesheet">
-    <?php require "logic/logic.php"; ?>
+ 	<link href="styles/styles.css" rel="stylesheet">
+	<?php require "logic/logic.php"; ?>
   	</head>
   	<body>
 	    <h1> P2:  Dictionary based XKCD Password Creator <span> by Joachim Byrnes-Shay </span></h1>
@@ -20,7 +20,7 @@
 	     	   			<?php } else echo $item; ?>
 	     	   			<?php ;}} ?>
 	       		</h2>
-	       	<form  method='GET' action ='index.php' id="thisform" novalidate>
+	       	<form  method='POST' action ='index.php' id="thisform" novalidate>
 	          <!-- novalidate tag disables built-in validation messages and allows php validation to take over-->
 	          <!-- for purposes of proof of concept -->
 	    	<p class="wordconfig">  

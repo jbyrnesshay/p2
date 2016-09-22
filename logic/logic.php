@@ -9,15 +9,15 @@
 	$symarray = ['!', '@', '#', '$', '%', '*', '&']; #array of symbols that will be used for selection by rand function when user opts to include symbol
 	$errClass = ""; #sets var that will be used to set styling class for error messages
 
-	if 	(isset($_GET) && $_GET == []) {
+	if 	(isset($_POST) && $_POST == []) {
  		$numWords = 5;
  		$max = 7;
  		#default values used to create user with 1st password selections when user first land on homepage p2.midnightoil.com, before submitting
  	} 
-	else if (isset($_GET)) {
-		#pass $_GET number inputs to htmlspecialchars in case user tries to hack the page
-		$numWords = htmlspecialchars($_GET["words"]);
- 	 	$max = htmlspecialchars($_GET["maxlength"]);
+	else if (isset($_POST)) {
+		#pass $_POST number inputs to htmlspecialchars in case user tries to hack the page
+		$numWords = htmlspecialchars($_POST["words"]);
+ 	 	$max = htmlspecialchars($_POST["maxlength"]);
  	 	$symbolToAdd = $symarray[rand(0,6)];
 		$numberToAdd = rand(0, 9);
 		#when there is GET data, num of words and max wordlength are set to user selection, symbol and number are prepared in event user opts to include these
@@ -39,14 +39,14 @@
 		$errClass="error";
 		$error = "ERROR: max word length must be 5 to 14";
 	}
-	else if (isset($_GET["config"]) && empty($_GET["case"])) {
+	else if (isset($_POST["config"]) && empty($_POST["case"])) {
 		#if user checks they wish to configure case, but does not select a specific configuration option
 		$errClass ="error";
 		$error = "ERROR: to configure case, make a configuration selection";
 	} 
-	else if (!(empty($_GET["case"]))) {
+	else if (!(empty($_POST["case"]))) {
 		#if not sent to the above error, the case options are set to the user's choice
-		$case = $_GET["case"];
+		$case = $_POST["case"];
 	}
 
 	
@@ -80,16 +80,16 @@
 	$userArray = array_map('strtoupper', $userArray);}
 	#first check that the below statements are not entered when the password array is empty
  	if (!(empty($userArray))) {
-  		if (isset($_GET["symbol"]) && $_GET["symbol"]!="") {
-			if ($_GET["symbol"] == "on") {  
+  		if (isset($_POST["symbol"]) && $_POST["symbol"]!="") {
+			if ($_POST["symbol"] == "on") {  
 			#if user has chosen to include a symbol, it will be appended to the end of the 1st word	
 			$addSymWhere = 0;
 			$newString1 = $userArray[$addSymWhere].$symbolToAdd;
 			$userArray[$addSymWhere] = $newString1;
 			}
 		}
-		if (isset($_GET["number"]) && $_GET["number"]!="") {
-			if (($_GET["number"] == "on")){
+		if (isset($_POST["number"]) && $_POST["number"]!="") {
+			if (($_POST["number"] == "on")){
 				#if user has chosen to include a number, it will be appended to the end of the last word
 				$addNumWhere = $numWords-1;
 				$newString2 = $userArray[$addNumWhere].$numberToAdd;

@@ -23,7 +23,7 @@ all generated passwords is lowercase.  When checking the "configure case" option
 user will be presented the alternatives of 1.  setting all words to uppercase, 2. capitalizing
 only the first letter of each word, or 3. alternate case, where the first word and all 
 odd words will be in uppercase and every second word will be lower case.  The advanced 
-config is hidden and shown using javascript script which has been placed in a separat file.
-
+ config is hidden and shown using javascript script which has been placed in a separate file.
+ 
 ## Outside code
 No outside code was used for this project
