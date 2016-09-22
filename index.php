@@ -9,15 +9,13 @@
   	</head>
   	<body>
 	    <h1> Joachim's password generator </h1>
-	  		<h2 id="msgwindow" <?php echo "class = '".$errClass."'"; ?> > 
-	  	  		 
-	        	<?php if (isset($error)){echo $error;}   
-	            	elseif(isset($userArray)){ ?>
-				<!--<h2>-->
-	        	<?php foreach($userArray as $item){ ?> 
-	     	   <?php if ((isset($newString2) && $item == $newString2) || (isset($newString1) && $item == $newString1)) {echo "<span class='s'>".$item.'</span>';} else echo $item;}} ?>
-	       	</h2>
-	   	<form  method='GET' action ='index.php' id="thisform" novalidate>
+	  			<h2 id="msgwindow" <?php echo "class = '".$errClass."'"; ?> > 
+	  	  			<?php if (isset($error)){echo $error;}   
+	            		elseif(isset($userArray)){ ?>
+	        		<?php foreach($userArray as $item){ ?> 
+	     	   		<?php if ((isset($newString2) && $item == $newString2) || (isset($newString1) && $item == $newString1)) {echo "<span class='s'>".$item.'</span>';} else echo $item;}} ?>
+	       		</h2>
+	       		   	<form  method='GET' action ='index.php' id="thisform" novalidate>
 	          <!-- novalidate tag disables built-in validation messages and allows php validation to take over-->
 	    	<p class="wordconfig">  
 	       		<label for = "quant"> how many words? (3 to 9)</label>
