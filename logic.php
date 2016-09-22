@@ -5,38 +5,52 @@ $dictionary = array_map('trim', $contents); #ensures there is no problematic whi
 $lastIndex = count($dictionary) - 1;  #for use in loops with random function, the highest range index used in the random func, equals index of last item in dictionary
 //$num = 5; //set default state before submit
 //$max = 5; // default state before submit because I am seeing that $max below is inside a if isset submit statement
-$addSymWhere = "";
-$addNumWHere = "";
+$symbolToAdd="";
+$numberToAdd="";
 
 $userArray = [];
 $stuff = [];
+$case = "lower";
 #the above will hold users passwords
 //$rando = -1;
 $symarray = ['!', '@', '#', '$', '%', '*', '&'];
 $errClass = "";//errEnd = "</h2>";
 //$okStart ="<h2>";
 //$okEnd = "</h2>";
-if (isset($_GET) && $_GET == []) {
-	$numWords = 5;
-	$max = 7;
-} else if (isset($_GET)) {
-	 $numWords = $_GET["words"];
-	 $max = $_GET["maxlength"];
-	 if ($numWords == "" || $max == "") {
-	$errClass = "error";
-	$error = "you must enter # of words and max wordlength to proceed";
-}}
-else if ( $_GET["words"] >= 3 && $_GET["words"] <= 9) {
-	$numWords= $_GET["words"];}
-   else if ( $_GET["words"] < 3 || $_GET["words"] > 9) {
-   	$errClass="error";
-		$error = "# of words must be between 3 and 9";
-	}
-if (( $_GET["caseconfig"]) == "ON" && (!(isset($_GET["caseconfig"]) || $_GET["caseconfig"] == ""))) {
-	$errClass ="error";
-	$error = "if you want to configure case, you must make a configuration selection";
+	if 	(isset($_GET) && $_GET == []) {
+ 		$numWords = 5;
+ 		$max = 7;
+ 	} 
+	else if (isset($_GET)) {
+ 		$numWords = $_GET["words"];
+ 	 	$max = $_GET["maxlength"];
+ 	}
 
-}
+ 	 
+
+ 	if ($numWords == "" || $max == "") {
+ 			$errClass = "error";
+ 			$error = "you must enter # of words and max wordlength to proceed";
+ 		}
+ 		 
+    	else if ( $numWords < 3 || $numWords > 9) {
+    		$errClass="error";
+ 			$error = "# of words must be between 3 and 9";
+  		}
+  		
+		else if ($max < 5 || $max > 14 ) {
+		$errClass="error";
+		$error = "max word length must be between 5 and 14";
+		}
+		 
+		else if (isset($_GET["config"]) && empty($_GET["case"])) {
+				$errClass ="error";
+					$error = "if you want to configure case, you must make a configuration selection";
+			} 
+		else if (!(empty($_GET["case"]))) {
+			$case = $_GET["case"];
+		}
+	
  
  
 
@@ -57,8 +71,7 @@ for ($i = 0; $i < $numWords; $i++)
 		$wordStart =$word[0];
 		$capwordStart = strtoupper($wordStart);
 		
-			if (empty($_POST["case"])) {$case = "lower";}
-				elseif ($case=="upper"){
+			 if ($case=="upper"){
 				$word = strtoupper($word);}
 			elseif ($case == "first"){
 				$word = $capwordStart.substr($word, 1);
@@ -83,7 +96,7 @@ for ($i = 0; $i < $numWords; $i++)
 		#symbol is what>
 		$symbolToAdd = $symarray[rand(0,6)];
 		#make new string
-		$addSymWhere = rand(0, ($numWords-1));
+		$addSymWhere = $numWords-1;
 
 		$newString1 = $userArray[$addSymWhere].$symbolToAdd;
 		$userArray[$addSymWhere] = $newString1;
@@ -94,18 +107,13 @@ for ($i = 0; $i < $numWords; $i++)
 		#number is what
 		   //if ($_POST["number"] != ""){
 		$numberToAdd = rand(0, 9);
-		$addNumWhere = rand(0, ($numWords-1));
-		while ($addNumWhere == $addSymWhere) {
-		$addNumWhere = rand(0, ($numWords-1));
-			
-		}
-		 # dont try to add number to word where symbol was added
+		$addNumWhere = 0;
+		 
 
 		$newString1 = $userArray[$addNumWhere].$numberToAdd;
 		$userArray[$addNumWhere]=$newString1;
 		 
 	}  
 
-//}
-//$userArray=arraytolower($userArray);
-  # this closes the if isset submit brace
+
+ 
