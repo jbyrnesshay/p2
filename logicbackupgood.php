@@ -1,4 +1,6 @@
 <?php
+	
+	#this is heavily commented because it is the first significant programming project of the course
 
 	$contents = explode("\n", file_get_contents('data/wordsEn.txt'));#reads contents of file
 	#wordsEn.txt dictionary courtesy of SIL international, file found at http://www-01.sil.org/linguistics/wordlists/english/
@@ -11,8 +13,9 @@
 
 	if 	(isset($_GET) && $_GET == []) {
  		$numWords = 5;
- 		$max = 7;
- 		#default values used to create user with 1st password selections when user first land on homepage p2.midnightoil.com, before submitting
+ 		$max = 7
+ 		/*when user first arrives at homepage, before submitting, default values are used to greet user with an automatically generated password list 
+ 		  default val.ue for number of words is 5, default value for max wordlength is 7*/
  	} 
 	else if (isset($_GET)) {
 		#pass $_GET number inputs to htmlspecialchars in case user tries to hack the page
@@ -22,6 +25,7 @@
 		$numberToAdd = rand(0, 9);
 		#when there is GET data, num of words and max wordlength are set to user selection, symbol and number are prepared in event user opts to include these
  	}
+
 
  	#error messages are configured below 
 	if ($numWords == "" || $max == "") {  
@@ -45,11 +49,11 @@
 		$error = "ERROR: to configure case, make a configuration selection";
 	} 
 	else if (!(empty($_GET["case"]))) {
-		#if not sent to the above error, the case options are set to the user's choice
+		#if not sent to the above error, the case options are set to the user's choice of case configuration
 		$case = $_GET["case"];
 	}
 
-	
+
 	for ($i = 0; $i < $numWords; $i++) {
 		$rando = rand(0, $lastIndex);
 		/*check that the value (word) at the random index is not longer than the maxlength a
@@ -58,14 +62,13 @@
 		{
 			$rando = rand(0, $lastIndex);  # generate random index in value from 0 to last index value in dictionary  
 		}
-		$word = strtolower($dictionary[$rando]);
+		/*make extra sure of lowercase default for generated words and
+		then prepare variables for case processing as needed*/
+		$word = strtolower($dictionary[$rando]); #just making sure of lowercase default for generated words
 		$wordStart =$word[0];
 		$capwordStart = strtoupper($wordStart);
-		/*if ($case=="upper"){
-			$word = strtoupper($word);
-		}
-		else*/
-			if ($case == "first") {
+		# below is method for case processing the 2 complicated cases of alternating words and initital cap
+		if ($case == "first") {
 			$word = $capwordStart.substr($word, 1);
 		}
 		elseif ($case == "alternate") {
@@ -76,17 +79,20 @@
 			#create array of word selections that will constitute the password list outputted to the user
 			array_push($userArray, $word);
 	}
+	/*for the straightforard case of converting the default lower case to upper case for the whole array, 
+	easy to use array function to convert the whole thing */
 	if ($case=="upper") {
-	$userArray = array_map('strtoupper', $userArray);}
+		$userArray = array_map('strtoupper', $userArray);
+	}
 	#first check that the below statements are not entered when the password array is empty
  	if (!(empty($userArray))) {
   		if (isset($_GET["symbol"]) && $_GET["symbol"]!="") {
 			if ($_GET["symbol"] == "on") {  
 			#if user has chosen to include a symbol, it will be appended to the end of the 1st word	
-			$addSymWhere = 0;
-			$newString1 = $userArray[$addSymWhere].$symbolToAdd;
-			$userArray[$addSymWhere] = $newString1;
-			}
+				$addSymWhere = 0;
+				$newString1 = $userArray[$addSymWhere].$symbolToAdd;
+				$userArray[$addSymWhere] = $newString1;
+				}
 		}
 		if (isset($_GET["number"]) && $_GET["number"]!="") {
 			if (($_GET["number"] == "on")){

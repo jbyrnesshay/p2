@@ -6,23 +6,21 @@ body {
 	font-family: Arial, sans-serif;
 	position: relative;
 }
-
-.s {
-	background: pink;
-	/* class s styles words that include symbol or number */
-}
-
-h1 {/*title*/
+h1 {
 	width: 800px;
 	margin: 0 auto 0 auto;
 	text-align: center;
-	height: 50px;
 	line-height: 50px;
-	text-transform: none;
+	text-transform: uppercase;
 	padding: 10px;
+	font-size: 1.3em;
+	/*main visual heading for the page */
 }
- 
- h2 {
+h1 span {
+	font-size: .5em;
+}
+h2 {
+	border-top: 3px solid black;
  	margin-bottom: 15px;
  	margin: 0 auto 15px auto;
 	text-align: center;
@@ -33,47 +31,53 @@ h1 {/*title*/
 	font-size: 1.6em;
 	background-color: #d0ecfd;
 	word-spacing: .75em;
- 	 
+ 	/* h2 is a dynamically created message window outputting either the password string or an error message */ 
  }
-
 .error {
-	background: orangered;
+	/* class for styling error messages in the h2 message window */
 	font-weight: bolder;
 	text-transform: uppercase;
-	font-size: 1.4em;
+	font-size: 1.2em;
+	background: pink;
+	color: black;
+	border-top: 3px solid black;
+	border-bottom: solid 1px black;
+}
+.nonalpha {
+	background: pink;
+	/* class nonalpha styles words in password window that include symbol or number */
 }
 form {
-	position: relative;
 	font-size: 1.2em;
 	text-transform: uppercase;
 	width: 800px;
 	margin: 0 auto;
 	background: snow;
 	height: 600px;
+}
+form p {
+	width: 398px;
+	height: 140px;
 	padding: 0;
+	margin: 0;
 }
 .wordconfig {
-margin-left: 0;
- 
-display: inline;
-float: left;
-background: honeydew;
+	margin-left: 0;
+ 	display: inline;
+	float: left;
+	background: honeydew;
+	/* # of words configuration style block */
 }
-
 .numconfig {
-	
-background: azure;
-float:right;
- 
- 
+	background: azure;
+	float:right;
+	/* "add a number" style block */
 }
-input[type="checkbox"]{
-	transform: scale(1.5);
-}
-
 .symbolconfig {
 	float: right;
 	 background: ghostwhite;
+	 display: inline;
+	 /* "add a symbol" style block */
 }
 .lengthconfig {
 	clear: both;
@@ -81,77 +85,69 @@ input[type="checkbox"]{
 	background: lavenderblush;
 	display: inline;
 	float: left;
+	/* max wordlength configuration style block */
+}
+.lengthconfig label, .wordconfig label {
+	padding-left: 30px;
 }
 .caseconfig {
-	clear: both;
-margin-left: 0;
-height: 50px;
- 
- 
-
+	clear: right;
+	margin-left: 0;
+	height: 60px;
+	font-size: 1em;
+	/* style block for option to set case parameters */
 }
 .caseconfig span {
 	clear: both;
-	margin-left: 0px;
+	margin-left: 30px;
 	display: block;
-
+	/* description of default case*/
 }
-
-.caseoptions span:nth-of-type(odd) {
- 
-	display: block;
-}
- 
-
 .caseoptions {
 	width: 800px;
- 	
  	text-transform: none;	
  	margin-left: 0px;
 	height: 100px;
     border: solid 1px black;
 	text-align: center;
-
+	/*styling for case configuration options which are revealed by js when caseconfig checkbox is checked */
 }
 .caseoptions input[type="radio"]{
 	margin: 25px;
 	transform: scale(1.50); 
 	background: pink;
 }
-.caseoptions input:nth-of-type[even] {
-	width: 100px
-	height: 20px;
-	align: right;
+input[type="checkbox"]{
+	transform: scale(1.5);
+	margin-top: 20px;
+	margin-left: 35px;
+	margin-right: 20px;
+}
+input[type="number"] {
+	display:block;
+	height: 30px;
+	width: 50px;
+	margin-top: 20px;
+	margin-left: 30px;
+	font-size: 1.2em;
 }
 .submitbut {
 	float: clear;
-	margin: 0px auto 0 auto;
-	padding: 0;
+	margin: 0px auto 0px auto;
 	width: 200px;
 	height: 50px;
+	/*submit button paragraph */
 }
-
 .submitbut input[type = submit] {
-	color: green;
+	color: black;
 	background: white;
 	width: 200px;
 	height: 50px;
 	margin: auto auto;
 	font-size: 1.1em;
 	text-transform: uppercase;
-}
-form p {
-
-	width: 398px;
-	height: 140px;
-	padding: 0;
-	margin: 0;
-
-}
-form p:nth-of-type(odd):not(.caseconfig) {
-	 border: solid 1px black;
-	 }
-form p:nth-of-type(even):not(.caseoptions) {
 	border: solid 1px black;
-	border-left: none;
-	 }
+	/*submit button styling */
+}
+
+
