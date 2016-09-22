@@ -9,8 +9,8 @@
   	</head>
   	<body>
 	    <h1> Joachim's password generator </h1>
-	  		<h2 id="msgwindow">
-	  	  		put stuff here
+	  		<h2 id="msgwindow" <?php echo "class = '".$errClass."'"; ?> > 
+	  	  		 
 	        	<?php if (isset($error)){echo $error;}   
 	            	elseif(isset($userArray)){ ?>
 				<!--<h2>-->
@@ -21,7 +21,7 @@
 	          <!-- novalidate tag disables built-in validation messages and allows php validation to take over-->
 	    	<p class="wordconfig">  
 	       		<label for = "quant"> how many words? (3 to 9)</label>
-	      		<input id="quant" type= "number" min="3" max="9" name = "words" value="5">
+	      		<input id="quant" type= "number" min="3" max="9" name = "words">
 	      	</p>
 			<p class="numconfig">
 	      		<input type="checkbox"  name="number">add a number?

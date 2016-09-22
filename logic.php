@@ -9,49 +9,42 @@ $addSymWhere = "";
 $addNumWHere = "";
 
 $userArray = [];
+$stuff = [];
 #the above will hold users passwords
 //$rando = -1;
 $symarray = ['!', '@', '#', '$', '%', '*', '&'];
-$errStart = "<h2 class='error'>";
-$errEnd = "</h2>";
-$okStart ="<h2>";
-$okEnd = "</h2>";
-
-
-/*if (isset($_POST["submit"])) {
-	if (!(empty($_POST["words"]))){$numWords = $_POST["words"];
-}	if (!(empty($_POST["maxlength"]))){$max = $_POST["maxlength"];}
-	if (!(empty($_POST["number"]))) {$number = $_POST["number"];}
-	if (!(empty($_POST["symbol"]))) {$symbol = $_POST["symbol"];}
-	if (!(empty($_POST["case"]))) {$case = $_POST["case"];}
-
-	
-	if (($_POST["words"]=="")) {
-		$errMsg = "you must enter # of words";
-		$error = $errStart.$errMsg.$errEnd;
+$errClass = "";//errEnd = "</h2>";
+//$okStart ="<h2>";
+//$okEnd = "</h2>";
+if (isset($_GET) && $_GET == []) {
+	$numWords = 5;
+	$max = 7;
+} else if (isset($_GET)) {
+	 $numWords = $_GET["words"];
+	 $max = $_GET["maxlength"];
+	 if ($numWords == "" || $max == "") {
+	$errClass = "error";
+	$error = "you must enter # of words and max wordlength to proceed";
+}}
+else if ( $_GET["words"] >= 3 && $_GET["words"] <= 9) {
+	$numWords= $_GET["words"];}
+   else if ( $_GET["words"] < 3 || $_GET["words"] > 9) {
+   	$errClass="error";
+		$error = "# of words must be between 3 and 9";
 	}
-	elseif ($_POST["maxlength"]=="") {
-		$errMsg = "you must enter maximum wordlength";
-		$error = $errStart.$errMsg.$errEnd;
-	}}
-	else if (!(isset($_POST["submit"])) && (($_POST["words"]=="") || (($_POST["maxlength"]=="")))) 
-	 {$max = 8; 
-	 $numWords=5;
-	 }//, /*$_POST["case"],$_POST["maxlength"])) && $_POST["maxlength"]==""){  */
-  # used to enter 1st while loop below, or i could do, while
-# my $_POST vars are "words" for #words, "number" and "symbol checkbboxes for adding either, 
-#maxlength and minlegnth from select boxes, and submit
+if (( $_GET["caseconfig"]) == "ON" && (!(isset($_GET["caseconfig"]) || $_GET["caseconfig"] == ""))) {
+	$errClass ="error";
+	$error = "if you want to configure case, you must make a configuration selection";
+
+}
  
  
+
+  
+echo isset($_GET)."  "; 
+var_dump($_GET);
+echo (isset($_GET["submitter"]));
  
-var_dump($_POST);
- 
-//var_dump($max);
-	#error ehcking here
-	#valldation chcking
-	# is min > max
-	# did user select word #
-	# did user select min and max
 for ($i = 0; $i < $numWords; $i++)
 	{
 		 	$rando = rand(0, $lastIndex);
