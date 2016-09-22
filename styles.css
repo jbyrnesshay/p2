@@ -7,6 +7,9 @@ body {
 	position: relative;
 }
 
+.s {
+	background: pink;
+}
 h1, h2 {/*title*/
 	width: 800px;
 	margin: 0 auto 0 auto;

@@ -104,8 +104,8 @@ for ($i = 0; $i < $numWords; $i++)
 		
 		 # dont try to add number to word where symbol was added
 
-		$newString1 = $userArray[$addNumWhere].$numberToAdd;
-		$userArray[$addNumWhere]=$newString1;
+		$newString2 = $userArray[$addNumWhere].$numberToAdd;
+		$userArray[$addNumWhere]=$newString2;
 		 
 	}
 	} } 
