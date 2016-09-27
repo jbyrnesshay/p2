@@ -61,11 +61,7 @@
 		$word = strtolower($dictionary[$rando]);
 		$wordStart =$word[0];
 		$capwordStart = strtoupper($wordStart);
-		/*if ($case=="upper"){
-			$word = strtoupper($word);
-		}
-		else*/
-			if ($case == "first") {
+		if ($case == "first") {
 			$word = $capwordStart.substr($word, 1);
 		}
 		elseif ($case == "alternate") {
